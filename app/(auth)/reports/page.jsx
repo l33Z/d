@@ -48,11 +48,11 @@ export default function Reports() {
                         {/* <MinimalDatePicker w={98} label='To Date' InputStyles={{ ...inputCustomStyles, padding: '3px' }} labelStyles={lableStyles} setDate={setSelectedDate} /> */}
                         <div className='flex flex-col w-full mb-4 '>
                             <label htmlFor="from-date" className='font-bold text-[13px] mb-1'>From Date</label>
-                            <input type='date' className='border-2 border-[#d1d1d1] p-3 text-sm rounded-[5px] w-[98%] outline-none' id='from-date' />
+                            <input type='date' placeholder='MM/DD/YYYY' className='border-2 border-[#d1d1d1] p-3 text-sm rounded-[5px] w-[98%] outline-none' id='from-date' />
                         </div>
                         <div className='flex flex-col w-full'>
                             <label htmlFor="to-date" className='font-bold text-[13px] mb-1'>To Date</label>
-                            <input type='date' className='border-2 border-[#d1d1d1] p-3 text-sm rounded-[5px] w-[98%] outline-none' id='to-date' />
+                            <input type='date' placeholder='MM/DD/YYYY' className='border-2 border-[#d1d1d1] p-3 text-sm rounded-[5px] w-[98%] outline-none' id='to-date' />
                         </div>
                         {/* <div className='flex flex-col w-full'>
                             <label htmlFor="to-date" className='font-bold  text-[13px]'>To Date</label>
