@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: black;
+  background: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bigTablet-breakpoint {
+  @apply bigTablet:absolute bigTablet:top-14 bigTablet:left-[250px] bigTablet:w-[calc(100vw_-_250px)] bigTablet:min-h-[calc(100vh_-_56px)];
+}
+
+.arrowUp::before {
+  position: absolute;
+  top: -10px;
+  right: 20px !important;
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  background-color: white;
+  transform: rotate(45deg);
+}
+
+#style-1::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+#style-1::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+  width: 3px;
+  height: 5px;
+  background-color: #f5f5f5;
+}
+
+#style-1::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #d1d1d1;
+}
+
+.toast-container {
+  border-radius: 4px;
+  padding: 8px;
+}
+.toast-div {
+  width: 280px;
+}
+.toast-container .toast-close svg {
+  width: 16px;
+  height: 16px;
+}
+.toast-container .toast-title {
+  font-weight: 800;
+  font-size: 14px;
+}
+.toast-container .toast-msg {
+  font-size: 13px;
+}
+
