@@ -12,8 +12,8 @@ module.exports = {
       },
       colors: {
         placeholder_border: '#D1D1D1',
-        // custom_blue: '#015591',
-        blue_base: '#0055A3',
+        // blue_base: '#0055A3',
+        blue_base: '#015591',
         blue_icon_color: '#146481',
         custom_gray: '#EEEEEE',
         borderGray: '#BFBFBF',

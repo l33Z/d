@@ -14,6 +14,7 @@ import getAwsAuthCredetial from '@/services/get-aws-credentials'
 import { Amplify, Auth } from 'aws-amplify'
 import loginUser from '@/services/login/login'
 import generateToken from '@/services/generate-token'
+import { MinimalInput, MinimalButton } from '@/components/common/components'
 
 
 export default function Login() {
@@ -133,18 +134,43 @@ export default function Login() {
     // }
 
 
+
+    const inputCustomStyles = {
+        fontWeight: '500',
+        borderRadius: '5px',
+        backgroundColor: '#fff',
+        border: '2px solid #d1d1d1',
+        outline: "none"
+    }
+
+
+
     return (
 
-        <main className='flex items-center justify-center min-h-screen'>
-            <div className='flex flex-col items-center justify-center w-[85%] max-w-[450px]'>
+        <main className='flex items-center justify-center min-h-screen bigTablet:bg-[#f9f9f9] '>
+            <div className='flex flex-col items-center justify-center w-[85%] max-w-[441px]'>
                 <Image src='/passLogo.png' width={197} height={105} alt='PASS' />
-                <CustomInput placeholder='Email Address *' startIcon={<i className="ri-user-line ri-lg text-blue_icon_color"></i>} baseClassName="mt-12" value={email} onChange={setEmail} error={errors.email} onFocus={() => setErrors({ ...errors, email: '' })} />
-                <CustomInput placeholder='Password *' startIcon={<i className="ri-lock-line ri-lg text-blue_icon_color"></i>} baseClassName="mt-2" value={password} onChange={setPassword} error={errors.password} onFocus={() => setErrors({ ...errors, password: '' })} />
-                <RoundedButton text={'SIGN IN'} baseClassName='my-4' onClick={ValidatForm} loadingText='SIGNING IN...' loading={isActionCalling} />
-                <Link href="/forgot-password" className='font-medium text-blue_base'>Forgot Password ?</Link>
-                <p className='absolute text-[13px] bottom-8 text-[#55555580] font-semibold'>App Version :  1.0</p>
+
+                <div className='flex flex-col items-center w-full bigTablet:hidden'>
+                    <CustomInput placeholder='Email Address *' startIcon={<i className="ri-user-line ri-lg text-blue_icon_color"></i>} baseClassName="mt-12" value={email} onChange={setEmail} error={errors.email} onFocus={() => setErrors({ ...errors, email: '' })} />
+                    <CustomInput placeholder='Password *' type='password' startIcon={<i className="ri-lock-line ri-lg text-blue_icon_color"></i>} baseClassName="mt-2" value={password} onChange={setPassword} error={errors.password} onFocus={() => setErrors({ ...errors, password: '' })} />
+                    <RoundedButton text={'SIGN IN'} baseClassName='my-4' onClick={ValidatForm} loadingText='SIGNING IN...' loading={isActionCalling} />
+                </div>
+
+                <div className='hidden w-full bigTablet:block'>
+                    <MinimalInput label='Email Address' value={email} placeholder='Enter Email' onChange={setEmail} type='email' error={errors.email} onFocus={() => setErrors({ ...errors, email: '' })} w='100' InputStyles={inputCustomStyles} />
+                    <MinimalInput label='Password' value={password} placeholder='Enter Password' onChange={setPassword} type='password' error={errors.password} onFocus={() => setErrors({ ...errors, password: '' })} w='100' InputStyles={inputCustomStyles} />
+                    <MinimalButton text='SIGN IN' loading={isActionCalling} loadingText='SIGNING IN...' disabled={isActionCalling} baseClassName={'my-4 p-3 w-full'} onClick={ValidatForm} />
+                </div>
+
+                <Link href="/forgot-password" className='font-medium bigTablet:ml-auto bigTablet:text-sm bigTablet:leading-4 bigTablet:block text-blue_base bigTablet:w-max'>
+                    Forgot Password ?
+                </Link>
+                <p className='absolute text-[13px] bottom-8 text-[#55555580] font-semibold bigTablet:hidden'>App Version :  1.0</p>
             </div>
         </main>
     )
 }
+
+
 

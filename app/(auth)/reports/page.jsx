@@ -4,7 +4,7 @@ import { MinimalAutoComplete, MinimalInput, MinimalDatePicker } from '@/componen
 import { RoundedButton } from '@/components/common/custom-components'
 import MobileNavBar from '@/components/navbars/mobile-navbar'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 const inputCustomStyles = {
     fontWeight: '500',
@@ -29,10 +29,16 @@ const yearList = [{ label: "2023", value: "2023" }]
 
 
 export default function Reports() {
+
+    const dateRef = useRef(null)
     const router = useRouter()
     const [typeOfFiltering, settypeOfFiltering] = useState({ label: 'Date Range', value: 'date-range' })
     const [selectedDate, setSelectedDate] = useState(Date.now())
 
+
+    const handleFocus = () => {
+        console.log(dateRef);
+    }
     return (
         <>
             <div className="block bigTablet:hidden">
@@ -48,7 +54,7 @@ export default function Reports() {
                         {/* <MinimalDatePicker w={98} label='To Date' InputStyles={{ ...inputCustomStyles, padding: '3px' }} labelStyles={lableStyles} setDate={setSelectedDate} /> */}
                         <div className='flex flex-col w-full mb-4 '>
                             <label htmlFor="from-date" className='font-bold text-[13px] mb-1'>From Date</label>
-                            <input type='date' placeholder='MM/DD/YYYY' className='border-2 border-[#d1d1d1] p-3 text-sm rounded-[5px] w-[98%] outline-none' id='from-date' />
+                            <input ref={dateRef} type='date' placeholder='MM/DD/YYYY' className='border-2 border-[#d1d1d1] p-3 text-sm rounded-[5px] w-[98%] outline-none' id='from-date' onFocus={handleFocus} />
                         </div>
                         <div className='flex flex-col w-full'>
                             <label htmlFor="to-date" className='font-bold text-[13px] mb-1'>To Date</label>
